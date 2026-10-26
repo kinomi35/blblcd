@@ -137,7 +137,7 @@ func SearchVideoList4KeyWord(keyWord string, cookie string, opt model.Option) (v
 			slog.Info("已经是最后一页，爬取结束")
 			break
 		}
-		nextPage = respData.Data.Next
+		nextPage++
 	}
 	return vedioDataList, nil
 }
