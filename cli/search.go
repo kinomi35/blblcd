@@ -17,7 +17,7 @@ func init() {
 
 var searchCmd = &cobra.Command{
 	Use: "search [key-word]",
-	Example: "blblcd search  宝可梦",
+	Example: "blblcd search -k 宝可梦",
 	Short:   "根据关键词搜索站内视频",
 	Run: func(cmd *cobra.Command, args []string) {
 		if keyWord == "" {
@@ -54,7 +54,8 @@ var searchCmd = &cobra.Command{
 		wg := sync.WaitGroup{}
 		for _,v := range videoList {
 			bvid := v.Bvid
-			opt.Bvid=bvid
+			itemOpt := opt
+			itemOpt.Bvid = bvid
 			sem <- struct{}{}
 			wg.Add(1)
 			go func() {
@@ -62,7 +63,7 @@ var searchCmd = &cobra.Command{
 				defer func() {
 					<-sem
 				}()
-				core.FindComment(core.Bvid2Avid(bvid), &opt)
+				core.FindComment(core.Bvid2Avid(bvid), &itemOpt)
 			}()
 		}
 		wg.Wait()
