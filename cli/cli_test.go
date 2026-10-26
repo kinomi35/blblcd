@@ -15,7 +15,7 @@ var testInject = &model.Injection{
 	Version:   "test-version",
 	BuildTime: "test-buildtime",
 	Commit:    "test-commit",
-	Author:    "test-author",
+	OriginAuthor:    "test-author",
 }
 
 // setupTest 设置测试环境

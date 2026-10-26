@@ -18,6 +18,9 @@ var (
 	imgDownload bool
 	maxTryCount int
 	maxDelaySec float64
+	keyWord		string
+	duration    int
+	uploadTime  int
 )
 
 var rootCmd = &cobra.Command{
@@ -37,6 +40,9 @@ func init() {
 	rootCmd.PersistentFlags().IntVarP(&maxTryCount, "max-try-count", "u", 3, "当爬取结果为空时请求最大尝试次数")
 	rootCmd.PersistentFlags().Float64VarP(&maxDelaySec, "max-delay", "d", 1, "爬取最大延迟时间，单位秒")
 	rootCmd.PersistentFlags().IntVarP(&corder, "corder", "v", 2, "爬取时评论排序方式，0：按热度，1：按热度+按时间，2：按时间，3：按热度")
+	rootCmd.PersistentFlags().StringVarP(&keyWord,"keyword","k","","根据关键词爬取站内视频下评论")
+	rootCmd.PersistentFlags().IntVarP(&uploadTime,"uploadTime","t",0,"指定爬取上传时间内的视频，0：全部时间(default)，1：最近一天，2：最近一周，3：最近半年")
+    rootCmd.PersistentFlags().IntVarP(&duration,"duration","r",0,"指定爬取相应时长的视频，1：10分钟以下，2：10-30分钟，3：30-60分钟，4：60分钟以上")
 }
 
 func Execute(injection *model.Injection) {
