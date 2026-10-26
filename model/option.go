@@ -13,4 +13,6 @@ type Option struct {
 	ImgDownload bool
 	MaxTryCount int
 	MaxDelaySec float64
+	Duration	int
+	UploadTime	int
 }

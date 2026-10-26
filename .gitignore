@@ -35,3 +35,4 @@ build/
 *.qgz
 .claude/
 CLAUDE.md
+template/*

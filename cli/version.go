@@ -16,11 +16,12 @@ var versionCmd = &cobra.Command{
 	Short:   "查看版本及构建信息",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf(`
-author: %s
+Origin author: %s
+Maintainter: %s
 version: %s
 commit: %s
 build time: %s
 
-`, Inject.Author, Inject.Version, Inject.Commit, Inject.BuildTime)
+`, Inject.OriginAuthor,Inject.Maintainer, Inject.Version, Inject.Commit, Inject.BuildTime)
 	},
 }
