@@ -17,7 +17,7 @@ var versionCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf(`
 Origin author: %s
-Maintainter: %s
+Maintainer: %s
 version: %s
 commit: %s
 build time: %s
